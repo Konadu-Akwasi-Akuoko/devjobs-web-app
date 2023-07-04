@@ -3,6 +3,7 @@ import Button2 from "@/components/Button2";
 import FormInput from "@/components/FormInput";
 import searchIcon from "@/assets/desktop/icon-search.svg";
 import CheckBox from "@/components/Checkbox";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   return (
@@ -25,6 +26,8 @@ export default function Home() {
       />
 
       <CheckBox name="like-checkbox" label="Do you like it?" value="yes" />
+
+      <ThemeToggle />
     </main>
   );
 }
