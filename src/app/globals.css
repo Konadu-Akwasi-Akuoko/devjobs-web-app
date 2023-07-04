@@ -32,3 +32,9 @@ p {
   font-size: 16px;
   line-height: 26px;
 }
+
+.button2 {
+  @apply px-10 py-4 text-primary-violet dark:text-white font-bold transition-colors bg-[#eeeffc] hover:bg-[#c5c9f4] rounded-5px dark:bg-[#303642] dark:hover:bg-[#696e76];
+  font-size: 16px;
+  line-height: 26px;
+}

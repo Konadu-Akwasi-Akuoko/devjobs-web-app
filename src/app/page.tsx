@@ -1,4 +1,5 @@
 import Button1 from "@/components/Button1";
+import Button2 from "@/components/Button2";
 import Image from "next/image";
 
 export default function Home() {
@@ -13,6 +14,10 @@ export default function Home() {
       <br />
 
       <Button1>Button 1</Button1>
+
+      <br />
+
+      <Button2>Button 2</Button2>
     </main>
   );
 }
