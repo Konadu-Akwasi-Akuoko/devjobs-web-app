@@ -1,10 +1,11 @@
 import Button1 from "@/components/Button1";
 import Button2 from "@/components/Button2";
 import FormInput from "@/components/FormInput";
+import searchIcon from "@/assets/desktop/icon-search.svg";
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-slate-300 min-h-screen">
       <h1>Hello it's me</h1>
       <h2>Hello it's me</h2>
       <h3>Hello it's me</h3>
@@ -15,9 +16,7 @@ export default function Home() {
 
       <Button2>Button 2</Button2>
 
-      <hr />
-
-      <FormInput />
+      <FormInput icon={searchIcon} placeholder="Search" width="w-[500px]" />
     </main>
   );
 }

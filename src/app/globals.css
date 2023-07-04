@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  @apply text-primary-midnight;
+}
+
 h1 {
   font-size: 28px;
   line-height: 34px;
