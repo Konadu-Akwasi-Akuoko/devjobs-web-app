@@ -28,7 +28,7 @@ p {
 }
 
 .button1 {
-  @apply px-10 py-4 transition-colors bg-primary-violet hover:bg-primary-light-violet;
+  @apply px-10 py-4 text-white font-bold transition-colors bg-primary-violet hover:bg-primary-light-violet rounded-5px;
   font-size: 16px;
   line-height: 26px;
 }
