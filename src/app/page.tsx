@@ -1,6 +1,6 @@
 import Button1 from "@/components/Button1";
 import Button2 from "@/components/Button2";
-import Image from "next/image";
+import FormInput from "@/components/FormInput";
 
 export default function Home() {
   return (
@@ -11,13 +11,13 @@ export default function Home() {
       <h4>Hello it's me</h4>
       <p>Hello it's me</p>
 
-      <br />
-
       <Button1>Button 1</Button1>
 
-      <br />
-
       <Button2>Button 2</Button2>
+
+      <hr />
+
+      <FormInput />
     </main>
   );
 }
