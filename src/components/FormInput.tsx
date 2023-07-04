@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import FormInputType from "@/types/FormInputTypes";
 
-export default function FormInput({ icon, width, placeholder }: any) {
+export default function FormInput({ name, icon, width, placeholder }: FormInputType) {
   return (
     <div
       className={
