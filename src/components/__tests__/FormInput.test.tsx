@@ -4,7 +4,6 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import FormInput from "../FormInput";
 import searchIcon from "@/assets/desktop/icon-search.svg";
-import exp from "constants";
 
 describe("Form Input", () => {
   it("should render a form input with an icon", async () => {

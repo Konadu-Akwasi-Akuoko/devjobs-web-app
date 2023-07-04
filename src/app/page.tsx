@@ -2,6 +2,7 @@ import Button1 from "@/components/Button1";
 import Button2 from "@/components/Button2";
 import FormInput from "@/components/FormInput";
 import searchIcon from "@/assets/desktop/icon-search.svg";
+import CheckBox from "@/components/Checkbox";
 
 export default function Home() {
   return (
@@ -16,7 +17,14 @@ export default function Home() {
 
       <Button2>Button 2</Button2>
 
-      <FormInput icon={searchIcon} placeholder="Search" width="w-[500px]" />
+      <FormInput
+        name="form-input"
+        icon={searchIcon}
+        placeholder="Search"
+        width="w-[500px]"
+      />
+
+      <CheckBox name="like-checkbox" label="Do you like it?" value="yes" />
     </main>
   );
 }
