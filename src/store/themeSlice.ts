@@ -4,10 +4,7 @@ export interface themeState {
   theme: string;
 }
 
-// Get the theme from local storage, if it's undefined set the theme to light
-const initialThemeState: themeState = JSON.parse(
-  localStorage.getItem("theme") || '{"theme": "light"}'
-);
+const initialThemeState: themeState = { theme: "" };
 
 const themeSlice = createSlice({
   name: "theme",
