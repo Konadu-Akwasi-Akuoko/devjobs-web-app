@@ -1,6 +1,7 @@
 import { kumbhSans } from "@/utils/fonts";
 import "./globals.css";
 import StoreProvider from "@/components/StoreProvider";
+import Header from "@/components/Header";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={kumbhSans.className}>
-        <StoreProvider>{children}</StoreProvider>
+        <div className=" bg-secondary-light-gray dark:bg-primary-midnight min-h-screen">
+          <Header />
+          <StoreProvider>{children}</StoreProvider>
+        </div>
       </body>
     </html>
   );

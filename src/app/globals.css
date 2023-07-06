@@ -42,3 +42,20 @@ p {
   font-size: 16px;
   line-height: 26px;
 }
+
+/* !Mobile CSS */
+.horizontal-padding {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/* !Tablet CSS  */
+@media (min-width: 640px) {
+}
+/* !Desktop CSS */
+@media (min-width: 1280px) {
+  .horizontal-padding {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
