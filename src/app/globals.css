@@ -32,13 +32,13 @@ p {
 }
 
 .button1 {
-  @apply px-10 py-4 text-white font-bold transition-colors bg-primary-violet hover:bg-primary-light-violet rounded-5px;
+  @apply px-10 py-4 h-12  text-white font-bold transition-colors bg-primary-violet hover:bg-primary-light-violet rounded-5px flex flex-row items-center;
   font-size: 16px;
   line-height: 26px;
 }
 
 .button2 {
-  @apply px-10 py-4 text-primary-violet dark:text-white font-bold transition-colors bg-[#eeeffc] hover:bg-[#c5c9f4] rounded-5px dark:bg-[#303642] dark:hover:bg-[#696e76];
+  @apply px-10 py-4 text-primary-violet dark:text-white font-bold transition-colors bg-[#eeeffc] hover:bg-[#c5c9f4] rounded-5px dark:bg-[#303642] dark:hover:bg-[#696e76] flex flex-row items-center;
   font-size: 16px;
   line-height: 26px;
 }
@@ -58,6 +58,11 @@ p {
   padding-right: 5%;
 }
 
+.horizontal-margin {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
 /* !Tablet CSS  */
 @media (min-width: 640px) {
 }
@@ -66,5 +71,10 @@ p {
   .horizontal-padding {
     padding-left: 10%;
     padding-right: 10%;
+  }
+
+  .horizontal-margin {
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }

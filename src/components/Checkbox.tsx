@@ -1,6 +1,14 @@
 import React from "react";
 
-export default function CheckBox({ name, value, label }: any) {
+export default function CheckBox({
+  name,
+  value,
+  label,
+}: {
+  name: string;
+  value: string;
+  label: string;
+}) {
   return (
     <div className="flex items-center gap-4">
       <input
@@ -9,7 +17,10 @@ export default function CheckBox({ name, value, label }: any) {
         name={name}
         value={value}
       />
-      <label className="font-bold text-base" htmlFor={name}>
+      <label
+        className="font-bold text-base dark:text-secondary-white"
+        htmlFor={name}
+      >
         {label}
       </label>
     </div>

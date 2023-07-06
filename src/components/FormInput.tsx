@@ -26,6 +26,7 @@ export default function FormInput({
       <input
         type="text"
         placeholder={placeholder}
+        name={name}
         className="py-7 text-base placeholder:text-secondary-gray dark:text-white dark:bg-primary-very-dark-blue appearance-none focus-visible:outline-none flex-1"
       />
     </div>
