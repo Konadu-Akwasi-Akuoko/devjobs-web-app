@@ -12,6 +12,7 @@ export default function FormInput({
 }: FormInputType) {
   return (
     <div
+    data-testid="form-input"
       className={
         "px-8 bg-white dark:bg-primary-very-dark-blue flex flex-row items-center gap-x-4 rounded-[6px] " +
         width

@@ -5,5 +5,5 @@ export default function Button1({
 }: {
   children: React.ReactNode | string;
 }) {
-  return <button className="button1">{children}</button>;
+  return <button className="button1" data-testid="button1">{children}</button>;
 }
