@@ -33,8 +33,9 @@ export const { setCompany, setLocation, setIsFullTime } = searchSlice.actions;
 
 export default searchSlice.reducer;
 
-export const selectCompany = (state: RootState) => state.searchReducer.company;
-export const selectLocation = (state: RootState) =>
+export const selectCompanyState = (state: RootState) =>
+  state.searchReducer.company;
+export const selectLocationState = (state: RootState) =>
   state.searchReducer.location;
-export const selectIsFullTime = (state: RootState) =>
+export const selectIsFullTimeState = (state: RootState) =>
   state.searchReducer.isFullTime;

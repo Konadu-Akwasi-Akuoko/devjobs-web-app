@@ -5,4 +5,6 @@ export default interface FormInputType {
   icon: string | StaticImport;
   width: string;
   placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

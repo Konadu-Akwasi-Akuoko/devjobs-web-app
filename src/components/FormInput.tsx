@@ -7,6 +7,8 @@ export default function FormInput({
   icon,
   width,
   placeholder,
+  value,
+  onChange,
 }: FormInputType) {
   return (
     <div
@@ -25,6 +27,8 @@ export default function FormInput({
       />
       <input
         type="text"
+        onChange={onChange}
+        value={value}
         placeholder={placeholder}
         name={name}
         className="py-7 text-base placeholder:text-secondary-gray dark:text-white dark:bg-primary-very-dark-blue appearance-none focus-visible:outline-none flex-1"

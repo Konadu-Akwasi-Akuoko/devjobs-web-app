@@ -6,7 +6,7 @@ export default function CheckBox({
   label,
 }: {
   name: string;
-  value: string;
+  value: boolean;
   label: string;
 }) {
   return (
@@ -15,7 +15,6 @@ export default function CheckBox({
         className="h-6 w-6 appearance-none bg-secondary-light-gray hover:bg-primary-light-violet hover:checked:bg-primary-violet checked:bg-primary-violet rounded checked:content-['✓']"
         type="checkbox"
         name={name}
-        value={value}
       />
       <label
         className="font-bold text-base dark:text-secondary-white"
