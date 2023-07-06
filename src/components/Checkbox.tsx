@@ -12,6 +12,7 @@ export default function CheckBox({
   return (
     <div className="flex items-center gap-4">
       <div
+        data-testid="checkbox"
         className={
           value
             ? `h-6 w-6 bg-primary-violet hover:bg-primary-violet rounded text-center text-xl cursor-pointer text-white`
