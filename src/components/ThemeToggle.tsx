@@ -13,7 +13,7 @@ export default function ThemeToggle() {
       </svg>
       {/* Toggles */}
       <button className="w-12 px-1 py-[5px] bg-white relative rounded-full">
-        <div className="h-[14px] w-[14px] bg-primary-violet hover:bg-primary-light-violet rounded-full"></div>
+        <div className="h-[14px] w-[14px] bg-primary-violet hover:bg-primary-light-violet rounded-full transition-[margin] theme-dark"></div>
       </button>
       {/* Moon Icon SVG */}
       <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">

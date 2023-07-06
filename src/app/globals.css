@@ -43,6 +43,15 @@ p {
   line-height: 26px;
 }
 
+/* Theme toggle CSS */
+/* .theme-light {
+  @apply ;
+} */
+
+.theme-dark {
+  @apply ml-[65%];
+}
+
 /* !Mobile CSS */
 .horizontal-padding {
   padding-left: 5%;
