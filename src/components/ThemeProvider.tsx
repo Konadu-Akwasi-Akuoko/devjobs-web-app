@@ -10,7 +10,6 @@ export default function ThemeProvider({
   children: React.ReactNode;
 }) {
   const theme = useSelector(selectTheme);
-  console.log(theme);
   return (
     <div className={theme}>
       <div className="bg-secondary-light-gray dark:bg-primary-midnight min-h-screen">

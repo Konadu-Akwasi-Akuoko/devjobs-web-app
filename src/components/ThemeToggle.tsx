@@ -1,30 +1,33 @@
 "use client";
 import { store } from "@/store/store";
-import { changeTheme } from "@/store/themeSlice";
-import React, { useEffect } from "react";
+import { changeTheme, selectTheme } from "@/store/themeSlice";
+import React, { MouseEventHandler, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 export default function ThemeToggle() {
-  // When this component mounts, check if there is a theme preference in local storage
-  // If there is, set the theme to that preference, if not check the prefer
-  // theme variable in css. Then use store the value to the store
+  // Set theme based on local storage or os preference
   useEffect(() => {
     // Check to see the local storage for a theme preference
+    // If not check to see if the user prefers dark mode or not using
+    // windows.match media, dispatch an action to the store accordingly
     const theme = localStorage.getItem("theme");
-    if (theme === "light") {
+    if (theme === "light" || theme === "dark") {
+      store.dispatch(changeTheme(theme));
+    } else if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: light)").matches
+    ) {
       store.dispatch(changeTheme("light"));
-    } else if (theme === "dark") {
-      store.dispatch(changeTheme("dark"));
     } else {
-      // Check to see if the browser supports window.matchMedia
-      if (window.matchMedia) {
-        // Check to see if the user prefers dark mode using windows.match media
-        // And dispatch an action to the store accordingly
-        window.matchMedia("(prefers-color-scheme: light)").matches
-          ? store.dispatch(changeTheme("light"))
-          : store.dispatch(changeTheme("dark"));
-      }
+      store.dispatch(changeTheme("dark"));
     }
   }, []);
+  const theme = useSelector(selectTheme);
+  const onBtnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    store.dispatch(changeTheme(newTheme));
+    localStorage.setItem("theme", newTheme);
+  };
   return (
     <div className="flex flex-row items-center gap-x-4">
       {/* Sun Icon SVG */}
@@ -36,8 +39,17 @@ export default function ThemeToggle() {
         />
       </svg>
       {/* Toggles */}
-      <button className="w-12 px-1 py-[5px] bg-white relative rounded-full">
-        <div className="h-[14px] w-[14px] bg-primary-violet hover:bg-primary-light-violet rounded-full transition-[margin] theme-dark"></div>
+      <button
+        className="w-12 px-1 py-[5px] bg-white relative rounded-full"
+        onClick={onBtnClick}
+      >
+        <div
+          className={
+            theme === "light"
+              ? "h-[14px] w-[14px] bg-primary-violet hover:bg-primary-light-violet rounded-full transition-[margin]"
+              : "h-[14px] w-[14px] bg-primary-violet hover:bg-primary-light-violet rounded-full transition-[margin] theme-dark"
+          }
+        ></div>
       </button>
       {/* Moon Icon SVG */}
       <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
