@@ -12,6 +12,7 @@ import {
   selectIsFullTimeState,
   selectLocationState,
   setCompany,
+  setIsFullTime,
   setLocation,
 } from "@/store/searchSlice";
 
@@ -24,6 +25,12 @@ export default function SearchBar() {
   };
   const onLocationFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     store.dispatch(setLocation(e.target.value));
+  };
+
+  const onCheckBoxChange = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    store.dispatch(setIsFullTime(!isFullTime));
   };
   return (
     <div className="horizontal-margin flex flex-row bg-secondary-white dark:bg-primary-very-dark-blue -mt-10 rounded-md">
@@ -44,7 +51,11 @@ export default function SearchBar() {
         onChange={onLocationFormChange}
       />
       <div className="w-[30%] flex flex-row gap-8 justify-center items-center content-center">
-        <CheckBox name="isFullTime" value={isFullTime} label="Full Time Only" />
+        <CheckBox
+          onClick={onCheckBoxChange}
+          value={isFullTime}
+          label="Full Time Only"
+        />
         <Button1>Search</Button1>
       </div>
     </div>

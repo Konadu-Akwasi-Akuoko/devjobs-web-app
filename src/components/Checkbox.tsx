@@ -1,27 +1,27 @@
 import React from "react";
 
 export default function CheckBox({
-  name,
+  onClick,
   value,
   label,
 }: {
-  name: string;
+  onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   value: boolean;
   label: string;
 }) {
   return (
     <div className="flex items-center gap-4">
-      <input
-        className="h-6 w-6 appearance-none bg-secondary-light-gray hover:bg-primary-light-violet hover:checked:bg-primary-violet checked:bg-primary-violet rounded checked:content-['✓']"
-        type="checkbox"
-        name={name}
-      />
-      <label
-        className="font-bold text-base dark:text-secondary-white"
-        htmlFor={name}
+      <div
+        className={
+          value
+            ? `h-6 w-6 bg-primary-violet hover:bg-primary-violet rounded text-center text-xl cursor-pointer text-white`
+            : `h-6 w-6 bg-secondary-light-gray hover:bg-primary-light-violet rounded text-center text-xl cursor-pointer text-white`
+        }
+        onClick={onClick}
       >
-        {label}
-      </label>
+        {value ? "\u2713" : ""}
+      </div>
+      <p className="font-bold text-base dark:text-secondary-white">{label}</p>
     </div>
   );
 }
