@@ -21,11 +21,7 @@ export default function SearchBar() {
         placeholder="Filter by location…"
       />
       <div className="w-[30%] flex flex-row gap-8 justify-center items-center content-center">
-        <CheckBox
-          name="full-time-check"
-          value="full-time"
-          label="Full Time Only"
-        />
+        <CheckBox name="isFullTime" value="full-time" label="Full Time Only" />
         <Button1>Search</Button1>
       </div>
     </div>
