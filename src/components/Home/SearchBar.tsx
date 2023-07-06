@@ -33,31 +33,46 @@ export default function SearchBar() {
     store.dispatch(setIsFullTime(!isFullTime));
   };
   return (
-    <div className="horizontal-margin flex flex-row bg-secondary-white dark:bg-primary-very-dark-blue -mt-10 rounded-md">
-      <FormInput
-        name="company"
-        icon={searchIcon}
-        width="w-[40%]"
-        placeholder="Filter by title, companies, expertise…"
-        value={company}
-        onChange={onCompanyFormChange}
-      />
-      <FormInput
-        name="location"
-        icon={locationIcon}
-        width="w-[30%]"
-        placeholder="Filter by location…"
-        value={location}
-        onChange={onLocationFormChange}
-      />
-      <div className="w-[30%] flex flex-row gap-8 justify-center items-center content-center">
-        <CheckBox
-          onClick={onCheckBoxChange}
-          value={isFullTime}
-          label="Full Time Only"
+    <>
+      {/* SearchBar for Desktop and Table */}
+      <div className="horizontal-margin hidden sm:flex flex-row bg-secondary-white dark:bg-primary-very-dark-blue -mt-10 rounded-md">
+        <FormInput
+          name="company"
+          icon={searchIcon}
+          width="xl:w-[40%] sm:w-3/12"
+          placeholder="Filter by title, companies, expertise…"
+          value={company}
+          onChange={onCompanyFormChange}
         />
-        <Button1>Search</Button1>
+        <FormInput
+          name="location"
+          icon={locationIcon}
+          width="xl:w-[30%] sm:w-3/12"
+          placeholder="Filter by location…"
+          value={location}
+          onChange={onLocationFormChange}
+        />
+        <div className="xl:w-[30%] sm:w-6/12 flex flex-row gap-8 justify-center items-center content-center">
+          <CheckBox
+            onClick={onCheckBoxChange}
+            value={isFullTime}
+            label="Full Time Only"
+          />
+          <Button1>Search</Button1>
+        </div>
       </div>
-    </div>
+
+      {/* SerchBar for Mobile Phone */}
+      <div className="horizontal-margin flex flex-row sm:hidden bg-secondary-white dark:bg-primary-very-dark-blue -mt-10 rounded-md">
+        <FormInput
+          name="company"
+          icon={searchIcon}
+          width="xl:w-[40%] sm:w-3/12"
+          placeholder="Filter by title…"
+          value={company}
+          onChange={onCompanyFormChange}
+        />
+      </div>
+    </>
   );
 }
