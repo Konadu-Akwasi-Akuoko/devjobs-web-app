@@ -1,0 +1,15 @@
+name: Test
+on:
+  push:
+    branches:
+      - master
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push to repo # Give a name to this step
+        uses: actions/checkout@v3 # Use an action that checks out your code
+      - name: Install dependencies # Give a name to this step
+        run: npm install # Run a command that installs your dependencies
+      - name: Run tests # Give a name to this step
+        run: npm run unit-test # Run a command that runs your tests
