@@ -16,10 +16,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={kumbhSans.className}>
-        <div className=" bg-secondary-light-gray dark:bg-primary-midnight min-h-screen">
-          <Header />
-          <StoreProvider>{children}</StoreProvider>
-        </div>
+        <StoreProvider>
+          <div className=" bg-secondary-light-gray dark:bg-primary-midnight min-h-screen">
+            <Header />
+            {children}
+          </div>
+        </StoreProvider>
       </body>
     </html>
   );

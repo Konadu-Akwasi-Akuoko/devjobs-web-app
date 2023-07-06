@@ -1,6 +1,30 @@
-import React from "react";
+"use client";
+import { store } from "@/store/store";
+import { changeTheme } from "@/store/themeSlice";
+import React, { useEffect } from "react";
 
 export default function ThemeToggle() {
+  // When this component mounts, check if there is a theme preference in local storage
+  // If there is, set the theme to that preference, if not check the prefer
+  // theme variable in css. Then use store the value to the store
+  useEffect(() => {
+    // Check to see the local storage for a theme preference
+    const theme = localStorage.getItem("theme");
+    if (theme === "light") {
+      store.dispatch(changeTheme("light"));
+    } else if (theme === "dark") {
+      store.dispatch(changeTheme("dark"));
+    } else {
+      // Check to see if the browser supports window.matchMedia
+      if (window.matchMedia) {
+        // Check to see if the user prefers dark mode using windows.match media
+        // And dispatch an action to the store accordingly
+        window.matchMedia("(prefers-color-scheme: light)").matches
+          ? store.dispatch(changeTheme("light"))
+          : store.dispatch(changeTheme("dark"));
+      }
+    }
+  }, []);
   return (
     <div className="flex flex-row items-center gap-x-4">
       {/* Sun Icon SVG */}
