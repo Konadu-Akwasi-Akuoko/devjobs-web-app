@@ -12,20 +12,23 @@ export default function FormInput({
 }: FormInputType) {
   return (
     <div
-    data-testid="form-input"
+      data-testid="form-input"
       className={
         "px-8 bg-white dark:bg-primary-very-dark-blue flex flex-row items-center gap-x-4 rounded-[6px] " +
         width
       }
     >
-      <Image
-        src={icon}
-        alt="icon"
-        height={24}
-        width={24}
-        priority
-        className="inline"
-      />
+      {icon ? (
+        <Image
+          src={icon}
+          alt="icon"
+          height={24}
+          width={24}
+          priority
+          className="inline"
+        />
+      ) : null}
+
       <input
         type="text"
         onChange={onChange}
