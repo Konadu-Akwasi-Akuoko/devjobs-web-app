@@ -15,11 +15,14 @@ import {
   setIsFullTime,
   setLocation,
 } from "@/store/searchSlice";
+import { selectModal } from "@/store/modalSlice";
+import Modal from "../Modal";
 
 export default function SearchBar() {
   const company = useSelector(selectCompanyState);
   const location = useSelector(selectLocationState);
   const isFullTime = useSelector(selectIsFullTimeState);
+  const renderModal = useSelector(selectModal);
   const onCompanyFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     store.dispatch(setCompany(e.target.value));
   };
@@ -63,7 +66,7 @@ export default function SearchBar() {
       </div>
 
       {/* SerchBar for Mobile Phone */}
-      <div className="horizontal-margin flex flex-row justify-between items-center sm:hidden bg-secondary-white dark:bg-primary-very-dark-blue -mt-10 rounded-md">
+      <div className="horizontal-margin flex flex-row justify-between items-center sm:hidden bg-secondary-white dark:bg-primary-very-dark-blue -mt-10 rounded-md relative">
         <FormInput
           name="company"
           width="w-[60%]"
@@ -84,6 +87,9 @@ export default function SearchBar() {
               </svg>
             </button>
           </div>
+          
+          {/* Modal */}
+          {renderModal && <Modal />}
 
           <div className="mr-4">
             <button className="bg-primary-violet p-3 rounded-5px">

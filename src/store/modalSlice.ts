@@ -6,26 +6,21 @@ export interface modalState {
 }
 
 const initialModalState: modalState = {
-  render: false,
+  render: true,
 };
 
 const modalSlice = createSlice({
   name: "modal",
   initialState: initialModalState,
   reducers: {
-    openModal: (state) => {
-      state.render = true;
-    },
-    closeModal: (state) => {
-      state.render = false;
+    changeStateOfModal: (state, action) => {
+      state.render = !action.payload;
     },
   },
 });
 
-export const { openModal, closeModal } = modalSlice.actions;
+export const { changeStateOfModal } = modalSlice.actions;
 
 export default modalSlice.reducer;
 
-export const selectModal = (state: RootState) => {
-  state.modalReducer.render;
-};
+export const selectModal = (state: RootState) => state.modalReducer.render;

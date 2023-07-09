@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --modal-bg: rgb(100, 116, 139, 0.3);
+  }
+}
+
 * {
   @apply text-primary-midnight;
 }

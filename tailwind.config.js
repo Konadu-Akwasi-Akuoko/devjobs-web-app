@@ -21,6 +21,7 @@ module.exports = {
           gray: "#9DAEC2",
           "dark-gray": "#6E8098",
         },
+        "modal-bg": "var(--modal-bg)",
       },
       borderRadius: {
         "5px": "5px",
