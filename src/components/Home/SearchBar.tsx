@@ -42,7 +42,7 @@ export default function SearchBar() {
         <FormInput
           name="company"
           icon={searchIcon}
-          width="xl:w-[40%] sm:w-3/12"
+          className="xl:w-[40%] sm:w-3/12"
           placeholder="Filter by title, companies, expertise…"
           value={company}
           onChange={onCompanyFormChange}
@@ -50,7 +50,7 @@ export default function SearchBar() {
         <FormInput
           name="location"
           icon={locationIcon}
-          width="xl:w-[30%] sm:w-3/12"
+          className="xl:w-[30%] sm:w-3/12"
           placeholder="Filter by location…"
           value={location}
           onChange={onLocationFormChange}
@@ -69,7 +69,7 @@ export default function SearchBar() {
       <div className="horizontal-margin flex flex-row justify-between items-center sm:hidden bg-secondary-white dark:bg-primary-very-dark-blue -mt-10 rounded-md relative">
         <FormInput
           name="company"
-          width="w-[60%]"
+          className="w-[60%]"
           placeholder="Filter by title…"
           value={company}
           onChange={onCompanyFormChange}
@@ -87,9 +87,33 @@ export default function SearchBar() {
               </svg>
             </button>
           </div>
-          
+
           {/* Modal */}
-          {renderModal && <Modal />}
+          {renderModal && (
+            <Modal>
+              <div>
+                <FormInput
+                  name="location"
+                  icon={locationIcon}
+                  className="w-full px-6"
+                  placeholder="Filter by location…"
+                  value={location}
+                  onChange={onLocationFormChange}
+                />
+                <div className="h-[2px] w-full bg-secondary-light-gray" />
+                <div className="p-6">
+                  <CheckBox
+                    onClick={onCheckBoxChange}
+                    value={isFullTime}
+                    label="Full Time Only"
+                  />
+                </div>
+                <div className="px-6 pb-6">
+                  <Button1 className="w-full">Search</Button1>
+                </div>
+              </div>
+            </Modal>
+          )}
 
           <div className="mr-4">
             <button className="bg-primary-violet p-3 rounded-5px">

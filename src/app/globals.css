@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --modal-bg: rgb(100, 116, 139, 0.3);
+    --modal-bg: rgb(0, 0, 0, 0.2);
   }
 }
 
@@ -38,7 +38,7 @@ p {
 }
 
 .button1 {
-  @apply px-10 py-4 h-12  text-white font-bold transition-colors bg-primary-violet hover:bg-primary-light-violet rounded-5px flex flex-row items-center;
+  @apply px-10 py-4 h-12  text-white font-bold transition-colors bg-primary-violet hover:bg-primary-light-violet rounded-5px flex flex-row items-center justify-center;
   font-size: 16px;
   line-height: 26px;
 }

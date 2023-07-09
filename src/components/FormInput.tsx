@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import FormInputType from "@/types/types";
+import { twMerge } from "tailwind-merge";
 
 export default function FormInput({
   name,
   icon,
-  width,
+  className,
   placeholder,
   value,
   onChange,
@@ -13,10 +14,10 @@ export default function FormInput({
   return (
     <div
       data-testid="form-input"
-      className={
-        "px-8 bg-white dark:bg-primary-very-dark-blue flex flex-row items-center gap-x-4 rounded-[6px] " +
-        width
-      }
+      className={twMerge(
+        "px-8 bg-white dark:bg-primary-very-dark-blue flex flex-row items-center gap-x-4 rounded-[6px] ",
+        className
+      )}
     >
       {icon ? (
         <Image
