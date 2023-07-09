@@ -17,7 +17,7 @@ describe("SearchBar", () => {
       </StoreProvider>
     );
 
-    within(container).getByTestId("button1");
+    within(container).getAllByTestId("button1");
     within(container).getAllByTestId("form-input");
   });
 
@@ -42,10 +42,10 @@ describe("SearchBar", () => {
       </StoreProvider>
     );
 
-    const locationInput = within(container).getByPlaceholderText(
+    const locationInput = within(container).getAllByPlaceholderText(
       "Filter by location…"
     );
-    fireEvent.change(locationInput, { target: { value: "Accra" } });
+    fireEvent.change(locationInput[0], { target: { value: "Accra" } });
     expect(selectLocationState(store.getState())).toBe("Accra");
   });
 
@@ -56,8 +56,8 @@ describe("SearchBar", () => {
       </StoreProvider>
     );
 
-    const checkBox = within(container).getByTestId("checkbox");
-    fireEvent.click(checkBox);
+    const checkBox = within(container).getAllByTestId("checkbox");
+    fireEvent.click(checkBox[0]);
     expect(selectIsFullTimeState(store.getState())).toBe(true);
   });
 });
