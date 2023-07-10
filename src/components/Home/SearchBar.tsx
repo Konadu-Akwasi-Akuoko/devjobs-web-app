@@ -65,7 +65,7 @@ export default function SearchBar() {
         </div>
       </div>
 
-      {/* SerchBar for Mobile Phone */}
+      {/* SearchBar for Mobile Phone */}
       <div className="horizontal-margin flex flex-row justify-between items-center sm:hidden bg-secondary-white dark:bg-primary-very-dark-blue -mt-10 rounded-md relative">
         <FormInput
           name="company"

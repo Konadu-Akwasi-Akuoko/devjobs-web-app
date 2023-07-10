@@ -26,13 +26,13 @@ export default function FilterButton() {
   const onCheckBoxChange = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    store.dispatch(setIsFullTime(!setIsFullTime));
+    store.dispatch(setIsFullTime(!isFullTime));
   };
 
   const onFilterButtonClicked = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    store.dispatch(changeStateOfModal(renderModal));
+    store.dispatch(changeStateOfModal(true));
   };
 
   return (
@@ -61,7 +61,7 @@ export default function FilterButton() {
               value={location}
               onChange={onLocationFormChange}
             />
-            <div className="h-[2px] w-full bg-secondary-light-gray" />
+            <div className="h-[1px] w-full bg-secondary-light-gray dark:bg-slate-500" />
             <div className="p-6">
               <CheckBox
                 onClick={onCheckBoxChange}
