@@ -1,3 +1,4 @@
+"use client";
 import { changeStateOfModal } from "@/store/modalSlice";
 import { store } from "@/store/store";
 import React from "react";
