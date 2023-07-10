@@ -1,15 +1,14 @@
 import "@testing-library/jest-dom/extend-expect";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { Provider } from "react-redux";
 import FilterButton from "../FilterButton";
-import { store } from "@/store/store";
+import StoreProvider from "@/components/StoreProvider";
 
 describe("FilterButton", () => {
   it("should render the filter button and the modal correctly", () => {
     render(
-      <Provider store={store}>
+      <StoreProvider>
         <FilterButton />
-      </Provider>
+      </StoreProvider>
     );
 
     expect(screen.getByRole("button")).toBeVisible();
