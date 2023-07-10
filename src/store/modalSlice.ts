@@ -6,7 +6,7 @@ export interface modalState {
 }
 
 const initialModalState: modalState = {
-  render: true,
+  render: false,
 };
 
 const modalSlice = createSlice({
