@@ -5,7 +5,11 @@ export default function Home() {
   return (
     <main>
       <SearchBar />
-      <JobCard />
+      <div className="horizontal-padding mt-20 grid grid-cols-3 gap-8 ">
+        <JobCard />
+        <JobCard />
+        <JobCard />
+      </div>
     </main>
   );
 }
