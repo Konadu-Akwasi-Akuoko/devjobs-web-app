@@ -4,7 +4,7 @@ import DataFromID from "@/components/Jobs/ID/DataFromID";
 
 export default function ID({ params }: { params: { id: string } }) {
   return (
-    <section className="horizontal-padding">
+    <section>
       <DataFromID id={Number(params.id)} data={data} />
     </section>
   );
