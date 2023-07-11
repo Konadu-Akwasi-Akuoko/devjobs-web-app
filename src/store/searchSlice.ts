@@ -24,50 +24,51 @@ const searchSlice = createSlice({
   reducers: {
     setCompany(
       state,
-      action: PayloadAction<{ company: string; data?: miniJobDataType[] }>
+      action: PayloadAction<{ company: string; data: miniJobDataType[] }>
     ) {
+      state.company = action.payload.company;
+
       if (action.payload.company != "") {
         state.isSearching = true;
       } else {
         state.isSearching = false;
+        state.searchData = [];
+        return;
       }
 
-      state.company = action.payload.company;
-      // Filter down the data and show data that includes what we are typing
-      // If the state.searchData is empty, then filter the data from the action.payload.data
-      // !refactor the undefined and the `?` type above in the function parameters
       state.searchData.length > 0 // If searchData is not empty it means other components like location and isFullTime are also performing searches
         ? (state.searchData = state.searchData.filter((item) =>
             item.company.toLowerCase().includes(state.company.toLowerCase())
           ))
-        : (state.searchData =
-            action.payload.data?.filter((item) =>
-              item.company.toLowerCase().includes(state.company.toLowerCase())
-            ) || []);
+        : (state.searchData = action.payload.data?.filter((item) =>
+            item.company.toLowerCase().includes(state.company.toLowerCase())
+          ));
     },
     setLocation(
       state,
-      action: PayloadAction<{ location: string; data?: miniJobDataType[] }>
+      action: PayloadAction<{ location: string; data: miniJobDataType[] }>
     ) {
+      state.location = action.payload.location;
+
       if (action.payload.location != "") {
         state.isSearching = true;
       } else {
         state.isSearching = false;
+        state.searchData = [];
+        return;
       }
 
-      state.location = action.payload.location;
       state.searchData.length > 0
         ? (state.searchData = state.searchData.filter((item) =>
             item.location.toLowerCase().includes(state.location.toLowerCase())
           ))
-        : (state.searchData =
-            action.payload.data?.filter((item) =>
-              item.location.toLowerCase().includes(state.location.toLowerCase())
-            ) || []);
+        : (state.searchData = action.payload.data?.filter((item) =>
+            item.location.toLowerCase().includes(state.location.toLowerCase())
+          ));
     },
     setIsFullTime(
       state,
-      action: PayloadAction<{ isFullTime: boolean; data?: miniJobDataType[] }>
+      action: PayloadAction<{ isFullTime: boolean; data: miniJobDataType[] }>
     ) {
       state.isFullTime = action.payload.isFullTime;
 
@@ -83,10 +84,9 @@ const searchSlice = createSlice({
         ? (state.searchData = state.searchData.filter((item) =>
             item.contract.toLowerCase().includes("Full Time".toLowerCase())
           ))
-        : (state.searchData =
-            action.payload.data?.filter((item) =>
-              item.contract.toLowerCase().includes("Full Time".toLowerCase())
-            ) || []);
+        : (state.searchData = action.payload.data?.filter((item) =>
+            item.contract.toLowerCase().includes("Full Time".toLowerCase())
+          ));
     },
   },
 });
