@@ -13,7 +13,7 @@ import { Header } from "./Header";
 import PositionAndApply from "./PositionAndApply";
 import Description from "./Description";
 import WhatYouWillDo from "./WhatYouWillDo";
-import Requirements from "../Requirements";
+import Requirements from "./Requirements";
 import Footer from "./Footer";
 
 export default function DataFromID({
