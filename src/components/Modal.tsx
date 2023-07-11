@@ -14,7 +14,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
 
   return (
     <div
-      className="fixed bg-modal-bg top-0 left-0 h-screen w-screen"
+      className="fixed bg-modal-bg top-0 left-0 h-screen w-screen z-50"
       onClick={closeModalOnParentClick}
     >
       <div

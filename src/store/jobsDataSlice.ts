@@ -8,6 +8,8 @@ export interface jobsDataState {
   indexOfLastPost: number;
   currentData: miniJobDataType[];
   data: miniJobDataType[];
+  clickedPostID: number | undefined | null;
+  clickedPostData: miniJobDataType | undefined | null;
 }
 
 const initialJobsDataState: jobsDataState = {
@@ -16,6 +18,8 @@ const initialJobsDataState: jobsDataState = {
   indexOfLastPost: 12,
   currentData: [],
   data: [],
+  clickedPostID: undefined,
+  clickedPostData: undefined,
 };
 
 const jobsDataSlice = createSlice({
@@ -23,25 +27,25 @@ const jobsDataSlice = createSlice({
   initialState: initialJobsDataState,
   reducers: {
     loadInitialPosts: (state, action: PayloadAction<miniJobDataType[]>) => {
-      return {
-        ...state,
-        totalNumberOfPosts: action.payload.length,
-        indexOfLastPost: 12,
-        currentData: action.payload.slice(0, 12),
-        data: action.payload,
-      };
+      state.totalNumberOfPosts = action.payload.length;
+      state.indexOfLastPost = 12;
+      state.currentData = action.payload.slice(0, 12);
+      state.data = action.payload;
     },
     // Accept the index of the last post as an
     // action and load more posts based on that
     loadMorePosts: (state, action: PayloadAction<number>) => {
-      return {
-        ...state,
-        indexOfLastPost:
-          action.payload + 12 < state.totalNumberOfPosts
-            ? action.payload + 12
-            : state.totalNumberOfPosts,
-        currentData: state.data.slice(0, action.payload + 12),
-      };
+      state.indexOfLastPost =
+        action.payload + 12 < state.totalNumberOfPosts
+          ? action.payload + 12
+          : state.totalNumberOfPosts;
+      state.currentData = state.data.slice(0, action.payload + 12);
+    },
+    loadClickedPost: (state, action: PayloadAction<number>) => {
+      state.clickedPostID = action.payload;
+      state.clickedPostData = state.data.find(
+        (post) => post.id === action.payload
+      );
     },
   },
 });

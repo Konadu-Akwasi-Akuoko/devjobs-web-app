@@ -11,6 +11,7 @@ import {
   selectLocationState,
   setIsFullTime,
   setLocation,
+  setSearchData,
 } from "@/store/searchSlice";
 import { store } from "@/store/store";
 import { selectCurrentData } from "@/store/jobsDataSlice";
@@ -21,17 +22,19 @@ export default function FilterButton() {
   const location = useSelector(selectLocationState);
   const jobsData = useSelector(selectCurrentData);
 
-
   const onLocationFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     store.dispatch(setLocation({ location: e.target.value, data: jobsData }));
-
   };
 
   const onCheckBoxChange = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     store.dispatch(setIsFullTime({ isFullTime: !isFullTime, data: jobsData }));
+  };
 
+  const onSearchButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    store.dispatch(setSearchData(jobsData));
+    store.dispatch(changeStateOfModal(false));
   };
 
   const onFilterButtonClicked = (
@@ -75,7 +78,9 @@ export default function FilterButton() {
               />
             </div>
             <div className="px-6 pb-6">
-              <Button1 className="w-full">Search</Button1>
+              <Button1 className="w-full" onClick={onSearchButtonClick}>
+                Search
+              </Button1>
             </div>
           </div>
         </Modal>
