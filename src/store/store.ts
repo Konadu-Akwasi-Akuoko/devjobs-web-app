@@ -2,14 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import themeReducer from "./themeSlice";
 import searchReducer from "./searchSlice";
 import modalReducer from "./modalSlice";
-import paginationReducer from "./paginationSlice";
+import jobsDataReducer from "./jobsDataSlice";
 
 export const store = configureStore({
   reducer: {
     themeReducer,
     searchReducer,
     modalReducer,
-    paginationReducer,
+    jobsDataReducer,
   },
 });
 

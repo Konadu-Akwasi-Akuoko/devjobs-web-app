@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 import { act } from "react-dom/test-utils";
 
-export interface paginationState {
+export interface jobsDataState {
   totalNumberOfPosts: number;
   postPerPage: 12;
   indexOfLastPost: number;
@@ -12,7 +12,7 @@ export interface paginationState {
   data: miniJobDataType[];
 }
 
-const initialPaginationState: paginationState = {
+const initialJobsDataState: jobsDataState = {
   totalNumberOfPosts: 0,
   postPerPage: 12,
   indexOfLastPost: 12,
@@ -20,11 +20,11 @@ const initialPaginationState: paginationState = {
   data: [],
 };
 
-const paginationSlice = createSlice({
-  name: "pagination",
-  initialState: initialPaginationState,
+const jobsDataSlice = createSlice({
+  name: "data",
+  initialState: initialJobsDataState,
   reducers: {
-    initialPosts: (state, action: { payload: miniJobDataType[] }) => {
+    loadInitialPosts: (state, action: { payload: miniJobDataType[] }) => {
       return {
         ...state,
         totalNumberOfPosts: action.payload.length,
@@ -48,20 +48,20 @@ const paginationSlice = createSlice({
   },
 });
 
-export const { initialPosts, loadMorePosts } = paginationSlice.actions;
+export const { loadInitialPosts, loadMorePosts } = jobsDataSlice.actions;
 
-export default paginationSlice.reducer;
+export default jobsDataSlice.reducer;
 
 export const selectTotalNumberOfPosts = (state: RootState) =>
-  state.paginationReducer.totalNumberOfPosts;
+  state.jobsDataReducer.totalNumberOfPosts;
 
 export const selectPostPerPage = (state: RootState) =>
-  state.paginationReducer.postPerPage;
+  state.jobsDataReducer.postPerPage;
 
 export const selectIndexOfLastPost = (state: RootState) =>
-  state.paginationReducer.indexOfLastPost;
+  state.jobsDataReducer.indexOfLastPost;
 
 export const selectCurrentData = (state: RootState) =>
-  state.paginationReducer.currentData;
+  state.jobsDataReducer.currentData;
 
-export const selectData = (state: RootState) => state.paginationReducer.data;
+export const selectData = (state: RootState) => state.jobsDataReducer.data;

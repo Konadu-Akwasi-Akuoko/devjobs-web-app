@@ -4,18 +4,17 @@ import JobCard from "./JobCard";
 import Button1 from "../Button1";
 import { store } from "@/store/store";
 import {
-  initialPosts,
+  loadInitialPosts,
   loadMorePosts,
   selectCurrentData,
-  selectData,
   selectIndexOfLastPost,
-} from "@/store/paginationSlice";
+} from "@/store/jobsDataSlice";
 import { useSelector } from "react-redux";
 import data from "@/data.json";
 
 export default function JobSection() {
   useEffect(() => {
-    store.dispatch(initialPosts(data));
+    store.dispatch(loadInitialPosts(data));
   }, []);
 
   const jobsData = useSelector(selectCurrentData);
