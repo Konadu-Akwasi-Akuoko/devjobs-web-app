@@ -1,4 +1,4 @@
-import jobsData from "@/data.json";
+// import jobsData from "@/data.json";
 import { miniJobDataType } from "@/types/types";
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store";
@@ -12,10 +12,10 @@ export interface paginationState {
 }
 
 const initialPaginationState: paginationState = {
-  totalNumberOfPosts: jobsData.length,
+  totalNumberOfPosts: 0,
   postPerPage: 12,
   currentPosts: 0,
-  indexOfLastPost: 11,
+  indexOfLastPost: 12,
   data: [],
 };
 
@@ -23,14 +23,16 @@ const paginationSlice = createSlice({
   name: "pagination",
   initialState: initialPaginationState,
   reducers: {
-    initialPosts: (state, action) => {
+    initialPosts: (state, action: { payload: miniJobDataType[] }) => {
       return {
         ...state,
+        totalNumberOfPosts: action.payload.length,
         currentPosts: 12,
-        indexOfLastPost: 11,
-        data: jobsData.slice(0, 12),
+        indexOfLastPost: 12,
+        data: action.payload.slice(0, 12),
       };
     },
+    
   },
 });
 

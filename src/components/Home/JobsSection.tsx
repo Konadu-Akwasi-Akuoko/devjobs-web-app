@@ -1,13 +1,19 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import JobCard from "./JobCard";
-import { miniJobDataType } from "@/types/types";
 import Button1 from "../Button1";
+import { store } from "@/store/store";
+import { initialPosts, selectData } from "@/store/paginationSlice";
+import { useSelector } from "react-redux";
+import data from "@/data.json";
 
-export default function JobSection({
-  jobsData,
-}: {
-  jobsData: miniJobDataType[];
-}) {
+export default function JobSection() {
+  useEffect(() => {
+    store.dispatch(initialPosts(data));
+  }, []);
+
+  const jobsData = useSelector(selectData);
+
   return (
     <>
       <div className="horizontal-padding mt-20 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 ">
