@@ -50,7 +50,7 @@ export default function SearchBar() {
           name="company"
           icon={searchIcon}
           className="xl:w-[40%] sm:w-3/12"
-          placeholder="Filter by title, companies, expertise…"
+          placeholder="Filter by companies…"
           value={company}
           onChange={onCompanyFormChange}
         />
@@ -77,7 +77,7 @@ export default function SearchBar() {
         <FormInput
           name="company"
           className="w-[60%]"
-          placeholder="Filter by title…"
+          placeholder="Filter by companies…"
           value={company}
           onChange={onCompanyFormChange}
         />
