@@ -8,7 +8,7 @@ export default function JobSection({
   jobsData: miniJobDataType[];
 }) {
   return (
-    <div className="horizontal-padding mt-20 grid grid-cols-3 gap-8 ">
+    <div className="horizontal-padding mt-20 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 ">
       {jobsData.map((job) => {
         return (
           <JobCard
