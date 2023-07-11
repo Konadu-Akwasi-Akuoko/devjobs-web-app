@@ -1,8 +1,6 @@
-// import jobsData from "@/data.json";
 import { miniJobDataType } from "@/types/types";
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store";
-import { act } from "react-dom/test-utils";
 
 export interface jobsDataState {
   totalNumberOfPosts: number;
@@ -24,7 +22,7 @@ const jobsDataSlice = createSlice({
   name: "data",
   initialState: initialJobsDataState,
   reducers: {
-    loadInitialPosts: (state, action: { payload: miniJobDataType[] }) => {
+    loadInitialPosts: (state, action: PayloadAction<miniJobDataType[]>) => {
       return {
         ...state,
         totalNumberOfPosts: action.payload.length,
@@ -35,7 +33,7 @@ const jobsDataSlice = createSlice({
     },
     // Accept the index of the last post as an
     // action and load more posts based on that
-    loadMorePosts: (state, action: { payload: number }) => {
+    loadMorePosts: (state, action: PayloadAction<number>) => {
       return {
         ...state,
         indexOfLastPost:

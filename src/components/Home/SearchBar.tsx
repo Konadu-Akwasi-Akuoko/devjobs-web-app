@@ -16,13 +16,16 @@ import {
   setLocation,
 } from "@/store/searchSlice";
 import FilterButton from "./FilterButton";
+import { selectCurrentData } from "@/store/jobsDataSlice";
 
 export default function SearchBar() {
   const company = useSelector(selectCompanyState);
   const location = useSelector(selectLocationState);
   const isFullTime = useSelector(selectIsFullTimeState);
+  // Get the current displaying data
+  const jobsData = useSelector(selectCurrentData);
   const onCompanyFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    store.dispatch(setCompany(e.target.value));
+    store.dispatch(setCompany({ company: e.target.value, data: jobsData }));
   };
   const onLocationFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     store.dispatch(setLocation(e.target.value));
