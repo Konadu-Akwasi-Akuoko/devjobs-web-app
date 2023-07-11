@@ -43,7 +43,7 @@ describe("Header", () => {
 
     expect(screen.getByAltText("logo")).toHaveAttribute(
       "src",
-      "." + mockData.logo
+      "../." + mockData.logo
     );
     expect(screen.getByText(mockData.company)).toBeInTheDocument();
     expect(screen.getByText(mockData.company.toLowerCase() + ".com")).toBeInTheDocument();
