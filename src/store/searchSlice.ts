@@ -34,16 +34,42 @@ const searchSlice = createSlice({
 
       state.company = action.payload.company;
       // Filter down the data and show data that includes what we are typing
-      state.searchData =
-        action.payload.data?.filter((item) =>
-          item.company.toLowerCase().includes(state.company.toLowerCase())
-        ) || [];
+      // If the state.searchData is empty, then filter the data from the action.payload.data
+      // !refactor the undefined and the `?` type above in the function parameters
+      state.searchData.length > 0 // If searchData is not empty it means other components like location and isFullTime are also performing searches
+        ? (state.searchData = state.searchData.filter((item) =>
+            item.company.toLowerCase().includes(state.company.toLowerCase())
+          ))
+        : (state.searchData =
+            action.payload.data?.filter((item) =>
+              item.company.toLowerCase().includes(state.company.toLowerCase())
+            ) || []);
     },
-    setLocation(state, action: PayloadAction<string>) {
-      state.location = action.payload;
+    setLocation(
+      state,
+      action: PayloadAction<{ location: string; data?: miniJobDataType[] }>
+    ) {
+      if (action.payload.location != "") {
+        state.isSearching = true;
+      } else {
+        state.isSearching = false;
+      }
+
+      state.location = action.payload.location;
+      state.searchData.length > 0
+        ? (state.searchData = state.searchData.filter((item) =>
+            item.location.toLowerCase().includes(state.location.toLowerCase())
+          ))
+        : (state.searchData =
+            action.payload.data?.filter((item) =>
+              item.location.toLowerCase().includes(state.location.toLowerCase())
+            ) || []);
     },
-    setIsFullTime(state, action: PayloadAction<boolean>) {
-      state.isFullTime = action.payload;
+    setIsFullTime(
+      state,
+      action: PayloadAction<{ isFullTime: boolean; data?: miniJobDataType[] }>
+    ) {
+      state.isFullTime = action.payload.isFullTime;
     },
   },
 });

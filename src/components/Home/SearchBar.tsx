@@ -28,13 +28,13 @@ export default function SearchBar() {
     store.dispatch(setCompany({ company: e.target.value, data: jobsData }));
   };
   const onLocationFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    store.dispatch(setLocation(e.target.value));
+    store.dispatch(setLocation({ location: e.target.value, data: jobsData }));
   };
 
   const onCheckBoxChange = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    store.dispatch(setIsFullTime(!isFullTime));
+    store.dispatch(setIsFullTime({ isFullTime: !isFullTime, data: jobsData }));
   };
   return (
     <>
