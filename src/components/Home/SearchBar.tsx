@@ -15,8 +15,6 @@ import {
   setIsFullTime,
   setLocation,
 } from "@/store/searchSlice";
-import { selectModal } from "@/store/modalSlice";
-import Modal from "../Modal";
 import FilterButton from "./FilterButton";
 
 export default function SearchBar() {
