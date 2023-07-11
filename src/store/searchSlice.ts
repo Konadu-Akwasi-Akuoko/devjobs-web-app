@@ -70,6 +70,23 @@ const searchSlice = createSlice({
       action: PayloadAction<{ isFullTime: boolean; data?: miniJobDataType[] }>
     ) {
       state.isFullTime = action.payload.isFullTime;
+
+      if (action.payload.isFullTime) {
+        state.isSearching = true;
+      } else {
+        state.isSearching = false;
+        state.searchData = [];
+        return;
+      }
+
+      state.searchData.length > 0
+        ? (state.searchData = state.searchData.filter((item) =>
+            item.contract.toLowerCase().includes("Full Time".toLowerCase())
+          ))
+        : (state.searchData =
+            action.payload.data?.filter((item) =>
+              item.contract.toLowerCase().includes("Full Time".toLowerCase())
+            ) || []);
     },
   },
 });
