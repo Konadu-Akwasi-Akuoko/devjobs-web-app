@@ -15,7 +15,7 @@ export default function JobCard({
 }: miniJobDataType) {
   return (
     <Link href={`/jobs/${id}`}>
-      <div className="p-8 bg-white dark:bg-primary-very-dark-blue rounded-md">
+      <div className="p-8 h-full bg-white dark:bg-primary-very-dark-blue rounded-md">
         <div className="relative">
           <div
             className="w-[50px] h-[50px] absolute -top-14 left-0 flex items-center justify-center rounded-[15px] overflow-hidden"
