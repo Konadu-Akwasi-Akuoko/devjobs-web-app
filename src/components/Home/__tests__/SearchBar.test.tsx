@@ -28,10 +28,10 @@ describe("SearchBar", () => {
       </StoreProvider>
     );
 
-    const companyInput = within(container).getByPlaceholderText(
-      "Filter by title, companies, expertise…"
+    const companyInput = within(container).getAllByPlaceholderText(
+      "Filter by companies…"
     );
-    fireEvent.change(companyInput, { target: { value: "Amalitech" } });
+    fireEvent.change(companyInput[0], { target: { value: "Amalitech" } });
     expect(selectCompanyState(store.getState())).toBe("Amalitech");
   });
 
