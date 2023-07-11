@@ -13,20 +13,25 @@ import {
   setLocation,
 } from "@/store/searchSlice";
 import { store } from "@/store/store";
+import { selectCurrentData } from "@/store/jobsDataSlice";
 
 export default function FilterButton() {
   const renderModal = useSelector(selectModal);
   const isFullTime = useSelector(selectIsFullTimeState);
   const location = useSelector(selectLocationState);
+  const jobsData = useSelector(selectCurrentData);
+
 
   const onLocationFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    store.dispatch(setLocation(e.target.value));
+    store.dispatch(setLocation({ location: e.target.value, data: jobsData }));
+
   };
 
   const onCheckBoxChange = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    store.dispatch(setIsFullTime(!isFullTime));
+    store.dispatch(setIsFullTime({ isFullTime: !isFullTime, data: jobsData }));
+
   };
 
   const onFilterButtonClicked = (

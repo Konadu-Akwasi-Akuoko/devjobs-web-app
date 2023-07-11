@@ -14,6 +14,7 @@ import {
   setCompany,
   setIsFullTime,
   setLocation,
+  setSearchData,
 } from "@/store/searchSlice";
 import FilterButton from "./FilterButton";
 import { selectCurrentData } from "@/store/jobsDataSlice";
@@ -36,6 +37,11 @@ export default function SearchBar() {
   ) => {
     store.dispatch(setIsFullTime({ isFullTime: !isFullTime, data: jobsData }));
   };
+
+  const onSearchButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    store.dispatch(setSearchData(jobsData));
+  };
+
   return (
     <>
       {/* SearchBar for Desktop and Table */}
@@ -62,7 +68,7 @@ export default function SearchBar() {
             value={isFullTime}
             label="Full Time Only"
           />
-          <Button1>Search</Button1>
+          <Button1 onClick={onSearchButtonClick}>Search</Button1>
         </div>
       </div>
 

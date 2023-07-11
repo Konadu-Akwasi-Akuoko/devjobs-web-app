@@ -88,10 +88,22 @@ const searchSlice = createSlice({
             item.contract.toLowerCase().includes("Full Time".toLowerCase())
           ));
     },
+    setSearchData(state, action: PayloadAction<miniJobDataType[]>) {
+      state.isSearching = true;
+      state.searchData = action.payload.filter(
+        (item) =>
+          item.company.toLowerCase().includes(state.company.toLowerCase()) &&
+          item.location.toLowerCase().includes(state.location.toLowerCase()) &&
+          (state.isFullTime
+            ? item.contract.toLowerCase().includes("Full Time".toLowerCase())
+            : true)
+      );
+    },
   },
 });
 
-export const { setCompany, setLocation, setIsFullTime } = searchSlice.actions;
+export const { setCompany, setLocation, setIsFullTime, setSearchData } =
+  searchSlice.actions;
 
 export default searchSlice.reducer;
 
