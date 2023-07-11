@@ -1,3 +1,4 @@
+"use client";
 /* eslint-disable @next/next/no-img-element */
 import Button2 from "@/components/Button2";
 import { allJobDataType } from "@/types/types";
@@ -14,11 +15,15 @@ export function Header({
         className="h-[50px] w-[50px] xl:w-[140px] xl:h-[140px] -mt-4 sm:mt-0 rounded-md sm:rounded-none overflow-hidden flex items-center justify-center"
         style={{ backgroundColor: clickedPostData?.logoBackground }}
       >
-        <img
-          src={`.${clickedPostData?.logo}`}
-          alt="logo"
-          className="w-3/4 h-auto"
-        />
+        {clickedPostData === undefined || null ? (
+          ""
+        ) : (
+          <img
+            src={`../.${clickedPostData?.logo}`}
+            alt="logo"
+            className="w-3/4 h-auto"
+          />
+        )}
       </div>
       <div className="mt-6 sm:mt-0 sm:ml-10 flex flex-col sm:flex-row sm:grow justify-between items-center">
         <div>
