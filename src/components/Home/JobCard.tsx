@@ -1,7 +1,10 @@
+"use client";
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import { miniJobDataType } from "@/types/types";
 import Link from "next/link";
+import { store } from "@/store/store";
+import { loadClickedPost } from "@/store/jobsDataSlice";
 
 export default function JobCard({
   id,

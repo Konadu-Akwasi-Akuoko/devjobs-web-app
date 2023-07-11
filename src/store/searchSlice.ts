@@ -119,3 +119,6 @@ export const selectIsSearching = (state: RootState) =>
 
 export const selectSearchData = (state: RootState) =>
   state.searchReducer.searchData;
+
+export const selectClickedData = (state: RootState) =>
+  state.jobsDataReducer.clickedPostData;

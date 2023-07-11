@@ -1,4 +1,4 @@
-import { miniJobDataType } from "@/types/types";
+import { allJobDataType, miniJobDataType } from "@/types/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 
@@ -7,9 +7,9 @@ export interface jobsDataState {
   postPerPage: 12;
   indexOfLastPost: number;
   currentData: miniJobDataType[];
-  data: miniJobDataType[];
+  data: allJobDataType[];
   clickedPostID: number | undefined | null;
-  clickedPostData: miniJobDataType | undefined | null;
+  clickedPostData: allJobDataType | undefined | null;
 }
 
 const initialJobsDataState: jobsDataState = {
@@ -26,7 +26,7 @@ const jobsDataSlice = createSlice({
   name: "data",
   initialState: initialJobsDataState,
   reducers: {
-    loadInitialPosts: (state, action: PayloadAction<miniJobDataType[]>) => {
+    loadInitialPosts: (state, action: PayloadAction<allJobDataType[]>) => {
       state.totalNumberOfPosts = action.payload.length;
       state.indexOfLastPost = 12;
       state.currentData = action.payload.slice(0, 12);
@@ -50,7 +50,8 @@ const jobsDataSlice = createSlice({
   },
 });
 
-export const { loadInitialPosts, loadMorePosts } = jobsDataSlice.actions;
+export const { loadInitialPosts, loadMorePosts, loadClickedPost } =
+  jobsDataSlice.actions;
 
 export default jobsDataSlice.reducer;
 
@@ -65,5 +66,8 @@ export const selectIndexOfLastPost = (state: RootState) =>
 
 export const selectCurrentData = (state: RootState) =>
   state.jobsDataReducer.currentData;
+
+export const selectClickedData = (state: RootState) =>
+  state.jobsDataReducer.clickedPostData;
 
 export const selectData = (state: RootState) => state.jobsDataReducer.data;
