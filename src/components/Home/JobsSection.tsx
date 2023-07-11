@@ -3,7 +3,13 @@ import React, { useEffect } from "react";
 import JobCard from "./JobCard";
 import Button1 from "../Button1";
 import { store } from "@/store/store";
-import { initialPosts, selectData } from "@/store/paginationSlice";
+import {
+  initialPosts,
+  loadMorePosts,
+  selectCurrentData,
+  selectData,
+  selectIndexOfLastPost,
+} from "@/store/paginationSlice";
 import { useSelector } from "react-redux";
 import data from "@/data.json";
 
@@ -12,7 +18,14 @@ export default function JobSection() {
     store.dispatch(initialPosts(data));
   }, []);
 
-  const jobsData = useSelector(selectData);
+  const jobsData = useSelector(selectCurrentData);
+  const indexOfLastPost = useSelector(selectIndexOfLastPost);
+
+  const loadMorePostsOnClick = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    store.dispatch(loadMorePosts(indexOfLastPost));
+  };
 
   return (
     <>
@@ -34,7 +47,7 @@ export default function JobSection() {
         })}
       </div>
       <div className="flex justify-center w-full mt-14 pb-28">
-        <Button1>Load More</Button1>
+        <Button1 onClick={loadMorePostsOnClick}>Load More</Button1>
       </div>
     </>
   );
