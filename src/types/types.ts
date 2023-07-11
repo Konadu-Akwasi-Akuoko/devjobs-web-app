@@ -9,7 +9,18 @@ export default interface FormInputType {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export type jobData = {
+export type miniJobDataType = {
+  id: number;
+  company: string;
+  logo: string;
+  logoBackground: string;
+  position: string;
+  postedAt: string;
+  contract: string;
+  location: string;
+};
+
+export type allJobDataType = {
   id: number;
   company: string;
   logo: string;
