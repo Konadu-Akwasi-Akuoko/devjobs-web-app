@@ -53,21 +53,21 @@ const searchSlice = createSlice({
       state.location = action.payload.location;
 
       // !We would rather perform a full on search rather than doing a search for only this input component
-      if (action.payload.location != "") {
-        state.isSearching = true;
-      } else {
-        state.isSearching = false;
-        state.searchData = [];
-        return;
-      }
+      // if (action.payload.location != "") {
+      //   state.isSearching = true;
+      // } else {
+      //   state.isSearching = false;
+      //   state.searchData = [];
+      //   return;
+      // }
 
-      state.searchData.length > 0
-        ? (state.searchData = state.searchData.filter((item) =>
-            item.location.toLowerCase().includes(state.location.toLowerCase())
-          ))
-        : (state.searchData = action.payload.data?.filter((item) =>
-            item.location.toLowerCase().includes(state.location.toLowerCase())
-          ));
+      // state.searchData.length > 0
+      //   ? (state.searchData = state.searchData.filter((item) =>
+      //       item.location.toLowerCase().includes(state.location.toLowerCase())
+      //     ))
+      //   : (state.searchData = action.payload.data?.filter((item) =>
+      //       item.location.toLowerCase().includes(state.location.toLowerCase())
+      //     ));
     },
     setIsFullTime(
       state,

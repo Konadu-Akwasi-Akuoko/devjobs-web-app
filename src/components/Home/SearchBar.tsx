@@ -32,6 +32,8 @@ export default function SearchBar() {
   };
   const onLocationFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     store.dispatch(setLocation({ location: e.target.value, data: jobsData }));
+    // Perform a full on search whenever something changes in the input of location
+    store.dispatch(setSearchData(jobsData));
   };
 
   const onCheckBoxChange = (
