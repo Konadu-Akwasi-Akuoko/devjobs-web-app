@@ -25,6 +25,7 @@ export default function SearchBar() {
   const isFullTime = useSelector(selectIsFullTimeState);
   // Get the current displaying data
   const jobsData = useSelector(selectCurrentData);
+
   const onCompanyFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     store.dispatch(setCompany({ company: e.target.value, data: jobsData }));
     // Perform a full on search whenever something changes in the input
