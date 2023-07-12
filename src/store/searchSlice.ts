@@ -28,7 +28,6 @@ const searchSlice = createSlice({
     ) {
       state.company = action.payload.company;
 
-
       // !We would rather perform a full on search rather than doing a search for only this input component
       // if (action.payload.company != "") {
       //   state.isSearching = true;
@@ -75,21 +74,22 @@ const searchSlice = createSlice({
     ) {
       state.isFullTime = action.payload.isFullTime;
 
-      if (action.payload.isFullTime) {
-        state.isSearching = true;
-      } else {
-        state.isSearching = false;
-        state.searchData = [];
-        return;
-      }
+      // !We would rather perform a full on search rather than doing a search for only this input component
+      // if (action.payload.isFullTime) {
+      //   state.isSearching = true;
+      // } else {
+      //   state.isSearching = false;
+      //   state.searchData = [];
+      //   return;
+      // }
 
-      state.searchData.length > 0
-        ? (state.searchData = state.searchData.filter((item) =>
-            item.contract.toLowerCase().includes("Full Time".toLowerCase())
-          ))
-        : (state.searchData = action.payload.data?.filter((item) =>
-            item.contract.toLowerCase().includes("Full Time".toLowerCase())
-          ));
+      // state.searchData.length > 0
+      //   ? (state.searchData = state.searchData.filter((item) =>
+      //       item.contract.toLowerCase().includes("Full Time".toLowerCase())
+      //     ))
+      //   : (state.searchData = action.payload.data?.filter((item) =>
+      //       item.contract.toLowerCase().includes("Full Time".toLowerCase())
+      //     ));
     },
     setSearchData(state, action: PayloadAction<miniJobDataType[]>) {
       state.isSearching = true;
