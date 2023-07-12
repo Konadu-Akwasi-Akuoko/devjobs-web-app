@@ -11,7 +11,11 @@ import {
 } from "@/store/jobsDataSlice";
 import { useSelector } from "react-redux";
 import data from "@/data.json";
-import { selectIsSearching, selectSearchData } from "@/store/searchSlice";
+import {
+  selectIsSearching,
+  selectSearchData,
+  setSearchData,
+} from "@/store/searchSlice";
 
 export default function JobSection() {
   useEffect(() => {
@@ -23,10 +27,12 @@ export default function JobSection() {
   const isSearching = useSelector(selectIsSearching);
   const searchData = useSelector(selectSearchData);
 
-  const loadMorePostsOnClick = (
+  const loadMorePostsOnClick = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
+    // The await here is to make sure that the posts are loaded before the search data is set
     store.dispatch(loadMorePosts(indexOfLastPost));
+    store.dispatch(setSearchData(jobsData));
   };
 
   return (
