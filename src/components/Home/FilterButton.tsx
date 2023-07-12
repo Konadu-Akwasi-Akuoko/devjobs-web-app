@@ -32,6 +32,8 @@ export default function FilterButton() {
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     store.dispatch(setIsFullTime({ isFullTime: !isFullTime, data: jobsData }));
+    // Perform a full on search whenever something changes in the input of location
+    store.dispatch(setSearchData(jobsData));
   };
 
   const onSearchButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
