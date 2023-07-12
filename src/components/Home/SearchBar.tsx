@@ -27,6 +27,8 @@ export default function SearchBar() {
   const jobsData = useSelector(selectCurrentData);
   const onCompanyFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     store.dispatch(setCompany({ company: e.target.value, data: jobsData }));
+    // Perform a full on search whenever something changes in the input
+    store.dispatch(setSearchData(jobsData));
   };
   const onLocationFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     store.dispatch(setLocation({ location: e.target.value, data: jobsData }));

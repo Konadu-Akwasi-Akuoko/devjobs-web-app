@@ -28,21 +28,23 @@ const searchSlice = createSlice({
     ) {
       state.company = action.payload.company;
 
-      if (action.payload.company != "") {
-        state.isSearching = true;
-      } else {
-        state.isSearching = false;
-        state.searchData = [];
-        return;
-      }
 
-      state.searchData.length > 0 // If searchData is not empty it means other components like location and isFullTime are also performing searches
-        ? (state.searchData = state.searchData.filter((item) =>
-            item.company.toLowerCase().includes(state.company.toLowerCase())
-          ))
-        : (state.searchData = action.payload.data?.filter((item) =>
-            item.company.toLowerCase().includes(state.company.toLowerCase())
-          ));
+      // !We would rather perform a full on search rather than doing a search for only this input component
+      // if (action.payload.company != "") {
+      //   state.isSearching = true;
+      // } else {
+      //   state.isSearching = false;
+      //   state.searchData = [];
+      //   return;
+      // }
+
+      // state.searchData.length > 0 // If searchData is not empty it means other components like location and isFullTime are also performing searches
+      //   ? (state.searchData = state.searchData.filter((item) =>
+      //       item.company.toLowerCase().includes(state.company.toLowerCase())
+      //     ))
+      //   : (state.searchData = action.payload.data?.filter((item) =>
+      //       item.company.toLowerCase().includes(state.company.toLowerCase())
+      //     ));
     },
     setLocation(
       state,
@@ -50,6 +52,7 @@ const searchSlice = createSlice({
     ) {
       state.location = action.payload.location;
 
+      // !We would rather perform a full on search rather than doing a search for only this input component
       if (action.payload.location != "") {
         state.isSearching = true;
       } else {
