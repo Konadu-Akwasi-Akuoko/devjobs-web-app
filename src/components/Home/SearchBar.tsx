@@ -52,11 +52,11 @@ export default function SearchBar() {
   return (
     <>
       {/* SearchBar for Desktop and Table */}
-      <div className="horizontal-margin hidden sm:flex flex-row bg-secondary-white dark:bg-primary-very-dark-blue -mt-10 rounded-md">
+      <div className="horizontal-margin -mt-10 hidden flex-row rounded-md bg-secondary-white dark:bg-primary-very-dark-blue sm:flex">
         <FormInput
           name="company"
           icon={searchIcon}
-          className="xl:w-[40%] sm:w-3/12"
+          className="sm:w-3/12 xl:w-[40%]"
           placeholder="Filter by companies…"
           value={company}
           onChange={onCompanyFormChange}
@@ -64,12 +64,12 @@ export default function SearchBar() {
         <FormInput
           name="location"
           icon={locationIcon}
-          className="xl:w-[30%] sm:w-3/12"
+          className="sm:w-3/12 xl:w-[30%]"
           placeholder="Filter by location…"
           value={location}
           onChange={onLocationFormChange}
         />
-        <div className="xl:w-[30%] sm:w-6/12 flex flex-row gap-8 justify-center items-center content-center">
+        <div className="flex flex-row content-center items-center justify-center gap-8 sm:w-6/12 xl:w-[30%]">
           <CheckBox
             onClick={onCheckBoxChange}
             value={isFullTime}
@@ -80,7 +80,7 @@ export default function SearchBar() {
       </div>
 
       {/* SearchBar for Mobile Phone */}
-      <div className="horizontal-margin flex flex-row justify-between items-center sm:hidden bg-secondary-white dark:bg-primary-very-dark-blue -mt-10 rounded-md relative">
+      <div className="horizontal-margin relative -mt-10 flex flex-row items-center justify-between rounded-md bg-secondary-white dark:bg-primary-very-dark-blue sm:hidden">
         <FormInput
           name="company"
           className="w-[60%]"
@@ -89,12 +89,12 @@ export default function SearchBar() {
           onChange={onCompanyFormChange}
         />
 
-        <div className="flex flex-row gap-4 items-center">
+        <div className="flex flex-row items-center gap-4">
           <FilterButton />
 
           <div className="mr-4">
             <button
-              className="bg-primary-violet p-3 rounded-5px"
+              className="rounded-5px bg-primary-violet p-3"
               onClick={onSearchButtonClick}
             >
               <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">

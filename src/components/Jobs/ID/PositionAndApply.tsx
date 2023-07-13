@@ -8,13 +8,13 @@ export default function PositionAndApply({
   clickedPostData: allJobDataType | null | undefined;
 }) {
   return (
-    <div className="flex flex-col mt-5 sm:mt-0 sm:flex-row items-center justify-between">
-      <div className="flex flex-col gap-2 mb-[50px] sm:mb-0 ">
+    <div className="mt-5 flex flex-col items-center justify-between sm:mt-0 sm:flex-row">
+      <div className="mb-[50px] flex flex-col gap-2 sm:mb-0 ">
         <div className="flex flex-row gap-3 ">
           <p className="text-secondary-dark-gray">
             {clickedPostData?.postedAt}
           </p>
-          <p className="text-3xl -mt-3 text-secondary-dark-gray">.</p>
+          <p className="-mt-3 text-3xl text-secondary-dark-gray">.</p>
           <p className="text-secondary-dark-gray">
             {clickedPostData?.contract}
           </p>
@@ -25,7 +25,7 @@ export default function PositionAndApply({
           </h2>
         </div>
         <div>
-          <p className="font-bold text-primary-violet text-sm">
+          <p className="text-sm font-bold text-primary-violet">
             {clickedPostData?.location}
           </p>
         </div>

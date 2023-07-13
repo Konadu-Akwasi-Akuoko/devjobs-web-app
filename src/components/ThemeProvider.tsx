@@ -13,7 +13,7 @@ export default function ThemeProvider({
   const theme = useSelector(selectTheme);
   return (
     <div className={theme}>
-      <div className="bg-secondary-light-gray dark:bg-primary-midnight min-h-screen relative">
+      <div className="relative min-h-screen bg-secondary-light-gray dark:bg-primary-midnight">
         {children}
       </div>
     </div>

@@ -46,7 +46,9 @@ describe("Header", () => {
       "../." + mockData.logo
     );
     expect(screen.getByText(mockData.company)).toBeInTheDocument();
-    expect(screen.getByText(mockData.company.toLowerCase() + ".com")).toBeInTheDocument();
+    expect(
+      screen.getByText(mockData.company.toLowerCase() + ".com")
+    ).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /company site/i })).toHaveAttribute(
       "href",
       mockData.website

@@ -14,11 +14,11 @@ export default function Modal({ children }: { children: React.ReactNode }) {
 
   return (
     <div
-      className="fixed bg-modal-bg top-0 left-0 h-screen w-screen z-50"
+      className="fixed left-0 top-0 z-50 h-screen w-screen bg-modal-bg"
       onClick={closeModalOnParentClick}
     >
       <div
-        className="horizontal-margin bg-white dark:bg-primary-very-dark-blue rounded-md mt-[35vh] overflow-hidden"
+        className="horizontal-margin mt-[35vh] overflow-hidden rounded-md bg-white dark:bg-primary-very-dark-blue"
         onClick={(e) => {
           e.stopPropagation();
         }}

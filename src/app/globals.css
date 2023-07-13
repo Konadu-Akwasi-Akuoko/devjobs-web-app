@@ -38,13 +38,13 @@ p {
 }
 
 .button1 {
-  @apply px-10 py-4 h-12  text-white font-bold transition-colors bg-primary-violet hover:bg-primary-light-violet rounded-5px flex flex-row items-center justify-center;
+  @apply flex h-12 flex-row  items-center justify-center rounded-5px bg-primary-violet px-10 py-4 font-bold text-white transition-colors hover:bg-primary-light-violet;
   font-size: 16px;
   line-height: 26px;
 }
 
 .button2 {
-  @apply px-10 py-4 text-primary-violet dark:text-white font-bold transition-colors bg-[#eeeffc] hover:bg-[#c5c9f4] rounded-5px dark:bg-[#303642] dark:hover:bg-[#696e76] flex flex-row items-center;
+  @apply flex flex-row items-center rounded-5px bg-[#eeeffc] px-10 py-4 font-bold text-primary-violet transition-colors hover:bg-[#c5c9f4] dark:bg-[#303642] dark:text-white dark:hover:bg-[#696e76];
   font-size: 16px;
   line-height: 26px;
 }

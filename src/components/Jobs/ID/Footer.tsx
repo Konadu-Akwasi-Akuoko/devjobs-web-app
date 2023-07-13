@@ -8,9 +8,9 @@ export default function Footer({
   clickedPostData: allJobDataType | null | undefined;
 }) {
   return (
-    <div className="horizontal-padding rounded-t-md mt-16 py-6 bg-white dark:bg-primary-very-dark-blue">
-      <div className="flex flex-col mt-5 sm:mt-0 sm:flex-row items-center justify-between">
-        <div className="sm:flex sm:flex-col sm:gap-3 sm:mb-0 hidden">
+    <div className="horizontal-padding mt-16 rounded-t-md bg-white py-6 dark:bg-primary-very-dark-blue">
+      <div className="mt-5 flex flex-col items-center justify-between sm:mt-0 sm:flex-row">
+        <div className="hidden sm:mb-0 sm:flex sm:flex-col sm:gap-3">
           <div>
             <h2 className="text-[28px] font-bold text-primary-very-dark-blue dark:text-white">
               {clickedPostData?.position}

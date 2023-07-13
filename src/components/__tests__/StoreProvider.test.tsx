@@ -6,7 +6,7 @@ describe("Store provider", () => {
   it("should render the children components correctly", () => {
     render(
       <StoreProvider>
-        <p data-testid="child" >Hello world</p>
+        <p data-testid="child">Hello world</p>
       </StoreProvider>
     );
     const pElement = screen.getByTestId("child");

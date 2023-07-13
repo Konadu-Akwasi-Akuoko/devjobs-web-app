@@ -38,7 +38,7 @@ export default function DataFromID({
         <Header clickedPostData={clickedPostData} />
 
         {/* Main Content */}
-        <div className="p-6 sm:p-12 bg-white dark:bg-primary-very-dark-blue mt-8 rounded-md">
+        <div className="mt-8 rounded-md bg-white p-6 dark:bg-primary-very-dark-blue sm:p-12">
           <PositionAndApply clickedPostData={clickedPostData} />
 
           {/* Description */}

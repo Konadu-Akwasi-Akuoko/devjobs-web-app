@@ -15,14 +15,14 @@ export default function CheckBox({
         data-testid="checkbox"
         className={
           value
-            ? `h-6 w-6 bg-primary-violet hover:bg-primary-violet rounded text-center text-xl cursor-pointer text-white`
-            : `h-6 w-6 bg-secondary-light-gray hover:bg-primary-light-violet rounded text-center text-xl cursor-pointer text-white`
+            ? `h-6 w-6 cursor-pointer rounded bg-primary-violet text-center text-xl text-white hover:bg-primary-violet`
+            : `h-6 w-6 cursor-pointer rounded bg-secondary-light-gray text-center text-xl text-white hover:bg-primary-light-violet`
         }
         onClick={onClick}
       >
         {value ? "\u2713" : ""}
       </div>
-      <p className="font-bold text-base dark:text-secondary-white">{label}</p>
+      <p className="text-base font-bold dark:text-secondary-white">{label}</p>
     </div>
   );
 }

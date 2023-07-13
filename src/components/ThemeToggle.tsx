@@ -40,14 +40,14 @@ export default function ThemeToggle() {
       </svg>
       {/* Toggles */}
       <button
-        className="w-12 px-1 py-[5px] bg-white relative rounded-full"
+        className="relative w-12 rounded-full bg-white px-1 py-[5px]"
         onClick={onBtnClick}
       >
         <div
           className={
             theme === "light"
-              ? "h-[14px] w-[14px] bg-primary-violet hover:bg-primary-light-violet rounded-full transition-[margin]"
-              : "h-[14px] w-[14px] bg-primary-violet hover:bg-primary-light-violet rounded-full transition-[margin] theme-dark"
+              ? "h-[14px] w-[14px] rounded-full bg-primary-violet transition-[margin] hover:bg-primary-light-violet"
+              : "theme-dark h-[14px] w-[14px] rounded-full bg-primary-violet transition-[margin] hover:bg-primary-light-violet"
           }
         ></div>
       </button>

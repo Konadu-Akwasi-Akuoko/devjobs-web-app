@@ -8,7 +8,7 @@ export default function Requirements({
 }) {
   return (
     <div className="mt-10">
-      <h2 className="dark:text-white font-bold text-xl">Requirements</h2>
+      <h2 className="text-xl font-bold dark:text-white">Requirements</h2>
       <p className="mt-7 text-secondary-dark-gray">
         {clickedPostData?.requirements.content}
       </p>
@@ -16,10 +16,10 @@ export default function Requirements({
         {clickedPostData?.requirements.items.map((item, index) => {
           return (
             <li
-              className="text-secondary-dark-gray flex flex-row items-start gap-8 mt-2"
+              className="mt-2 flex flex-row items-start gap-8 text-secondary-dark-gray"
               key={index}
             >
-              <span className="text-5xl -mt-6 text-primary-violet">.</span>
+              <span className="-mt-6 text-5xl text-primary-violet">.</span>
               {item}
             </li>
           );

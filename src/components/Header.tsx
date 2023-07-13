@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="horizontal-padding flex flex-row justify-between items-center h-[136px] sm:h-[160px] xl:h-[162px] bg-cover bg-no-repeat bg-center bg-header-mobile sm:bg-header-tablet xl:bg-header-desktop">
+    <header className="horizontal-padding flex h-[136px] flex-row items-center justify-between bg-header-mobile bg-cover bg-center bg-no-repeat sm:h-[160px] sm:bg-header-tablet xl:h-[162px] xl:bg-header-desktop">
       <Link href={"/"}>
         <Image src={Logo} alt="logo" width={115} height={32} priority />
       </Link>

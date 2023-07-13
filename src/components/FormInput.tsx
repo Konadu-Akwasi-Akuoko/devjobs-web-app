@@ -15,7 +15,7 @@ export default function FormInput({
     <div
       data-testid="form-input"
       className={twMerge(
-        "px-8 bg-white dark:bg-primary-very-dark-blue flex flex-row items-center gap-x-4 rounded-[6px] ",
+        "flex flex-row items-center gap-x-4 rounded-[6px] bg-white px-8 dark:bg-primary-very-dark-blue ",
         className
       )}
     >
@@ -36,7 +36,7 @@ export default function FormInput({
         value={value}
         placeholder={placeholder}
         name={name}
-        className="py-7 text-base placeholder:text-secondary-gray dark:text-white dark:bg-primary-very-dark-blue appearance-none focus-visible:outline-none flex-1"
+        className="flex-1 appearance-none py-7 text-base placeholder:text-secondary-gray focus-visible:outline-none dark:bg-primary-very-dark-blue dark:text-white"
       />
     </div>
   );
