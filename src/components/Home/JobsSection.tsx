@@ -37,7 +37,7 @@ export default function JobSection() {
 
   return (
     <>
-      <div className="horizontal-padding mt-20 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 ">
+      <div className="horizontal-padding mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3 ">
         {/* If isSearching is true, render the search data */}
         {isSearching
           ? searchData.map((job) => {
@@ -71,7 +71,7 @@ export default function JobSection() {
               );
             })}
       </div>
-      <div className="flex justify-center w-full mt-14 pb-28">
+      <div className="mt-14 flex w-full justify-center pb-28">
         <Button1 onClick={loadMorePostsOnClick}>Load More</Button1>
       </div>
     </>
